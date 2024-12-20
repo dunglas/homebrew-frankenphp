@@ -6,6 +6,11 @@ class Frankenphp < Formula
   license "MIT"
   head "https://github.com/dunglas/frankenphp.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/dunglas/frankenphp"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c61de7edcc3516e1f469a23f064f138fae2aa74d854445ab6202b2f4b7eb50f"
+  end
+
   depends_on "go" => :build
 
   depends_on "brotli"
