@@ -12,6 +12,7 @@ class Frankenphp < Formula
   end
 
   depends_on "go" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "brotli"
   depends_on "shivammathur/php/php-zts"
