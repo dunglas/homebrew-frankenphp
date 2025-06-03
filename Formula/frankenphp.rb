@@ -1,16 +1,16 @@
 class Frankenphp < Formula
   desc "Modern PHP app server"
   homepage "https://frankenphp.dev"
-  url "https://github.com/dunglas/frankenphp/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "32aa4e358cbcdfbc34730b38b69df8258189397a74b1fcb3e87b585506986b88"
+  url "https://github.com/dunglas/frankenphp/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "55eb13fc334f5355aa7a7dbc0487a8c3e2b1b6a15fa29200686c71a812b322f5"
   license "MIT"
   head "https://github.com/dunglas/frankenphp.git", branch: "main"
 
   bottle do
     root_url "https://ghcr.io/v2/dunglas/frankenphp"
-    sha256 cellar: :any,                 arm64_sequoia: "8d08dc004df1159e218c2f0c6c8958c64a188cc81e4fcc8e5602d99d3fb06aa3"
-    sha256 cellar: :any,                 ventura:       "1221feaf4f81978738255a6a81ae7def4010a80e892ab054d00ab1aa2303d22f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8790cf5fdd9d7b06b36a7e4679127f288d2dfc641d841911b5ce5e47bba5bd85"
+    sha256 cellar: :any,                 arm64_sequoia: "82f608df5a2c3890b429576d481a84ba6da4978f5adc4c102c3321f9534a04f4"
+    sha256 cellar: :any,                 ventura:       "511601fbf78dbc3f84cbcdbdc97c6c2561a653713defe8f66e5822b1e703e0c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc09d9b4efc05447338f3e0592a3559eeaec6bc99456ab6b27e4941881caa285"
   end
 
   depends_on "go" => :build
