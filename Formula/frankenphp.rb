@@ -23,7 +23,7 @@ class Frankenphp < Formula
   def install
     php_config = "#{Formula["shivammathur/php/php-zts"].opt_bin}/php-config"
     php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
-    
+
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
 
     ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes")
