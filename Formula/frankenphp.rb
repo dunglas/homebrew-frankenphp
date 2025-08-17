@@ -22,19 +22,21 @@ class Frankenphp < Formula
 
   def install
     php_config = "#{Formula["shivammathur/php/php-zts"].opt_bin}/php-config"
+    php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
+
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
 
-    ENV["CGO_CFLAGS"] = `#{php_config} --includes`
-    ENV["CGO_LDFLAGS"] = `#{php_config} --ldflags`.strip! + " " + `#{php_config} --libs`.strip! + lib_path
+    ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes")
+    ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
+    tags = %w[nobadger nomysql nopgx]
     ldflags = %W[
       -s -w
       -X "github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP #{version} (Homebrew) PHP #{Formula["shivammathur/php/php-zts"].version} Caddy"
     ]
 
     cd "caddy/frankenphp" do
-      system "go", "build", \
-        *std_go_args(ldflags:, output: bin/"frankenphp"), "-tags", "nobadger,nomysql,nopgx", "main.go"
+      system "go", "build", *std_go_args(ldflags:, tags:), "main.go"
     end
   end
 
