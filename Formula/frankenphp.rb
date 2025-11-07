@@ -25,8 +25,8 @@ class Frankenphp < Formula
     php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
 
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
-
-    ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes")
+    franken_version = "-DFRANKENPHP_VERSION=#{version.to_s.delete_prefix("v")}"
+    ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes") + " #{franken_version}"
     ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
     tags = %w[nobadger nomysql nopgx]
