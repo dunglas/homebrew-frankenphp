@@ -25,14 +25,13 @@ class Frankenphp < Formula
     php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
 
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
-    franken_version = "-DFRANKENPHP_VERSION=#{version.to_s.delete_prefix("v")}"
-    ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes") + " #{franken_version}"
+    ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes") + " -DFRANKENPHP_VERSION=#{version}"
     ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
     tags = %w[nobadger nomysql nopgx]
     ldflags = %W[
       -s -w
-      -X "github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP #{version} (Homebrew) PHP #{Formula["shivammathur/php/php-zts"].version} Caddy"
+      -X "github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP v#{version} (Homebrew) PHP #{Formula["shivammathur/php/php-zts"].version} Caddy"
     ]
 
     cd "caddy/frankenphp" do
