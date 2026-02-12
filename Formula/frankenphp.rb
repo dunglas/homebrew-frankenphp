@@ -6,6 +6,12 @@ class Frankenphp < Formula
   license "MIT"
   head "https://github.com/dunglas/frankenphp.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/dunglas/frankenphp"
+    sha256 cellar: :any,                 arm64_sequoia: "8532d024c3c2ce7266a6ff4d7d458d78f59261fc5096a5878a8cb58ba2958da0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2325dc3b592b469b746ebecd6ac2132f62978a84eb8c552c571eb241cbef42c"
+  end
+
   depends_on "go" => :build
   depends_on "pkgconf" => :build
 
