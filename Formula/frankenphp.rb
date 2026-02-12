@@ -6,17 +6,24 @@ class Frankenphp < Formula
   license "MIT"
   head "https://github.com/dunglas/frankenphp.git", branch: "main"
 
-  bottle do
-    root_url "https://ghcr.io/v2/dunglas/frankenphp"
-    sha256 cellar: :any,                 arm64_sequoia: "4d0b6572bdf5602c35bbd5d7b4750695c105b9963672fc6f71b9106f975ba397"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e1ff429a409eb3b5be1dfd3f478af41595174e4987e61a44161899958715d37"
-  end
-
   depends_on "go" => :build
   depends_on "pkgconf" => :build
 
+  depends_on "argon2"
   depends_on "brotli"
+  depends_on "freetds"
+  depends_on "gd"
+  depends_on "gettext"
+  depends_on "gmp"
+  depends_on "icu4c@78"
+  depends_on "libpq"
+  depends_on "libsodium"
+  depends_on "libzip"
+  depends_on "oniguruma"
+  depends_on "openssl@3"
   depends_on "shivammathur/php/php-zts"
+  depends_on "sqlite"
+  depends_on "unixodbc"
   depends_on "watcher"
 
   def install
