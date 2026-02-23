@@ -27,6 +27,7 @@ class Frankenphp < Formula
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openssl@3"
+  depends_on "pcre2"
   depends_on "shivammathur/php/php-zts"
   depends_on "sqlite"
   depends_on "unixodbc"
