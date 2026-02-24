@@ -45,6 +45,7 @@ class Frankenphp < Formula
     ldflags = %W[
       -s -w
       -X "github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP v#{version} (Homebrew) PHP #{Formula["shivammathur/php/php-zts"].version} Caddy"
+      -X "github.com/caddyserver/caddy/v2/modules/caddyhttp.ServerHeader=FrankenPHP Caddy"
     ]
 
     cd "caddy/frankenphp" do
