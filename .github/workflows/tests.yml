@@ -38,6 +38,8 @@ jobs:
 
       - run: brew tap shivammathur/php
 
+      - run: brew trust shivammathur/php
+
       - run: brew test-bot --only-formulae --root-url='https://ghcr.io/v2/dunglas/frankenphp'
         if: github.event_name == 'pull_request'
 
