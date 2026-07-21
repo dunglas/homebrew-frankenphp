@@ -34,7 +34,7 @@ class Frankenphp < Formula
   depends_on "watcher"
 
   def install
-    php_config = "#{Formula["shivammathur/php/php-zts"].opt_bin}/php-config"
+    php_config = "#{formula_opt_bin("shivammathur/php/php-zts")}/php-config"
     php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
 
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
