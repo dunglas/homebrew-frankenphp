@@ -37,7 +37,7 @@ class Frankenphp < Formula
     php_config = "#{formula_opt_bin("shivammathur/php/php-zts")}/php-config"
     php_config_libs = Utils.safe_popen_read(php_config, "--libs").strip
 
-    lib_path = OS.mac? ? " -L#{MacOS.sdk_path_if_needed}/usr/lib" : ""
+    lib_path = OS.mac? ? " -L#{MacOS.sdk_path}/usr/lib" : ""
     ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes") + " -DFRANKENPHP_VERSION=#{version}"
     ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
