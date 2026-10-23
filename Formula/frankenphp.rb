@@ -1,8 +1,8 @@
 class Frankenphp < Formula
   desc "Modern PHP app server"
   homepage "https://frankenphp.dev"
-  url "https://github.com/php/frankenphp/archive/refs/tags/v1.13.2.tar.gz"
-  sha256 "a2557e793f325ee7ca64da3fecfdf942f5c428d8f1e1574fd7e20bd28b346f57"
+  url "https://github.com/php/frankenphp/archive/refs/tags/v1.13.3.tar.gz"
+  sha256 "feb1b1c0b34fe98d8a45a5aa052814577919fc420a7bc6148424421b8dc3561e"
   license "MIT"
   head "https://github.com/dunglas/frankenphp.git", branch: "main"
 
