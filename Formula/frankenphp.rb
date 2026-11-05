@@ -8,8 +8,8 @@ class Frankenphp < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/dunglas/frankenphp"
-    sha256 cellar: :any, arm64_sequoia: "f2b99d8adf14c8304e68e176ec8ac72a25ff7b1a399a5769bca4a80090b261c1"
-    sha256 cellar: :any, x86_64_linux:  "667438e82937c615a7133ce299735581b9f1801f9a18012fc40e1a68b1614960"
+    sha256 cellar: :any, arm64_sequoia: "bb48c437c7885449ded9cde5c3555dfe689cf8a81f3852422292e44759323ec2"
+    sha256 cellar: :any, x86_64_linux:  "01bdc2c4b7621f551879d94bd22ca021ed170c21f9356c02a56af4ec1cb12392"
   end
 
   depends_on "go" => :build
