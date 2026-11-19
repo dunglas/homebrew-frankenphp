@@ -17,6 +17,7 @@ class Frankenphp < Formula
 
   depends_on "argon2"
   depends_on "brotli"
+  depends_on "capstone"
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
