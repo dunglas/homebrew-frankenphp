@@ -39,7 +39,9 @@ class Frankenphp < Formula
 
     lib_path = OS.mac? ? " -L#{MacOS.sdk_path}/usr/lib" : ""
     ENV["CGO_CFLAGS"] = Utils.safe_popen_read(php_config, "--includes") + " -DFRANKENPHP_VERSION=#{version}"
-    ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
+    # libpq pulls in a newer ICU, link the one php-zts uses
+    icu_path = "-L#{formula_opt_lib("icu4c@78")} "
+    ENV["CGO_LDFLAGS"] = icu_path + Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
     tags = %w[nobadger nomysql nopgx]
     php_version = Formula["shivammathur/php/php-zts"].version
