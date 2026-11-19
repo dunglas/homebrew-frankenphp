@@ -42,11 +42,12 @@ class Frankenphp < Formula
     ENV["CGO_LDFLAGS"] = Utils.safe_popen_read(php_config, "--ldflags").strip + php_config_libs + lib_path
 
     tags = %w[nobadger nomysql nopgx]
-    ldflags = %W[
-      -s -w
-      -X "github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP v#{version} (Homebrew) PHP #{Formula["shivammathur/php/php-zts"].version} Caddy"
-      -X github.com/caddyserver/caddy/v2.CustomBinaryName=frankenphp
-      -X "github.com/caddyserver/caddy/v2/modules/caddyhttp.ServerHeader=FrankenPHP Caddy"
+    php_version = Formula["shivammathur/php/php-zts"].version
+    ldflags = [
+      "-s -w",
+      "-X \"github.com/caddyserver/caddy/v2.CustomVersion=FrankenPHP v#{version} (Homebrew) PHP #{php_version} Caddy\"",
+      "-X github.com/caddyserver/caddy/v2.CustomBinaryName=frankenphp",
+      "-X \"github.com/caddyserver/caddy/v2/modules/caddyhttp.ServerHeader=FrankenPHP Caddy\"",
     ]
 
     cd "caddy/frankenphp" do
